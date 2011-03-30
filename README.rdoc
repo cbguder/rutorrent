@@ -19,6 +19,10 @@ Produces:
 
   ubuntu-10.10-desktop-i386.iso
 
+== Documentation
+
+http://rdoc.info/github/cbguder/rutorrent/master/frames
+
 == Caveat emptor
 
 As the version number implies, RUTorrent is undocumented and untested.
