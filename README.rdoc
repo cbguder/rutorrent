@@ -1,0 +1,26 @@
+= RUTorrent
+
+RUTorrent is a Ruby library for the remote management of µTorrent clients via
+the Web UI API.
+
+== Installation
+
+  gem install rutorrent
+
+== Synopsis
+
+  require 'rutorrent'
+
+  s = RUTorrent::Server.new('127.0.0.1', 6881, 'username', 'password')
+  t = s.torrents[0]
+  puts t.name
+
+Produces:
+
+  ubuntu-10.10-desktop-i386.iso
+
+== Caveat emptor
+
+As the version number implies, RUTorrent is undocumented and untested.
+Specifically, only read-only methods have been tested with µTorrent 2.2.1. Use
+it at your own risk.

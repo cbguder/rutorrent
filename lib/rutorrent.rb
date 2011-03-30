@@ -1,0 +1,8 @@
+require 'rutorrent/file'
+require 'rutorrent/helpers'
+require 'rutorrent/job_properties'
+require 'rutorrent/label'
+require 'rutorrent/rssfilter'
+require 'rutorrent/server'
+require 'rutorrent/settings'
+require 'rutorrent/torrent'
