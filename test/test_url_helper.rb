@@ -32,8 +32,8 @@ class TestURLHelper < Test::Unit::TestCase
   end
 
   def test_action_hash
-    actions = %q{getfiles getprops start stop pause unpause forcestart recheck
-      remove removedata queuebottom queuedown queuetop queueup}
+    actions = %w(getfiles getprops start stop pause unpause forcestart recheck
+      remove removedata queuebottom queuedown queuetop queueup)
 
     actions.each do |action|
       assert_equal "/gui/?token=TOKEN&action=#{action}&hash=HASH", path_for(:action => action, :hash => 'HASH')
