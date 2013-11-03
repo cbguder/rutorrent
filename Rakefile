@@ -1,8 +1,6 @@
-require 'bundler'
-require 'rake/rdoctask'
+require 'bundler/gem_tasks'
 require 'rake/testtask'
-
-Bundler::GemHelper.install_tasks
+require 'rdoc/task'
 
 Rake::TestTask.new
 
