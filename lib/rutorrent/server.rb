@@ -7,7 +7,7 @@ module RUTorrent
   class Server
     TOKEN_PATH = '/gui/token.html'
 
-    attr_reader :host, :port, :user, :token, :build
+    attr_reader :host, :port, :user, :cookie, :token, :build
 
     def initialize(host, port, user, pass)
       @host = host
@@ -15,8 +15,9 @@ module RUTorrent
       @user = user
       @pass = pass
 
-      @token = nil
-      @build = nil
+      @cookie = ''
+      @token  = nil
+      @build  = nil
 
       @http = Net::HTTP.new(@host, @port)
 
@@ -85,7 +86,7 @@ module RUTorrent
   private
 
     def request_raw(path, authenticate=true)
-      req = Net::HTTP::Get.new(path)
+      req = Net::HTTP::Get.new(path, {"Cookie" => @cookie})
       req.basic_auth @user, @pass if authenticate
       @http.request(req)
     end
@@ -98,6 +99,9 @@ module RUTorrent
       end
 
       response = request_raw(TOKEN_PATH)
+
+      @cookie = response['Set-Cookie'][/(.*?);/]
+
       html = Nokogiri::HTML.parse(response.body)
       @token = html.css("#token").text
     end
