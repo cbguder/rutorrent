@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Can Berk Güder"]
   s.email       = ["cbguder@gmail.com"]
   s.homepage    = "http://cbg.me/"
+  s.license     = "MIT"
 
   s.summary     = %q{Library for the remote management of uTorrent clients}
   s.description = <<-EOF.strip.gsub(/^\s+/, '')
